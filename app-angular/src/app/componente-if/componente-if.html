@@ -1,0 +1,13 @@
+<div class="containter mt-5 text-center">
+    <h2>Estado de autenticación</h2>
+    @if(this.isAutenticado){
+    <p class="text-success">Estás autenticado</p>
+
+    } @else {
+            <p class="text-danger">No estás autenticado</p>
+
+    }
+
+    <button class="btn btn-primary my-3" (click) ="alternarAutenticacion()">ALternar estado de autentiación</button>
+
+</div>

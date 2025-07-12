@@ -1,0 +1,7 @@
+<h3 class="text-success">Agregar nuevo producto</h3>
+
+<div class="d-flex justify-content-center w-50 mx-auto">
+    <input type="text" placeholder="Descripción Producto" class="form-control w-50 me-2" [(ngModel)] ="descripcionInput" />
+    <input type="text" placeholder="Precio" class="form-control me-2 w-25" [(ngModel)] ="precioInput" />
+    <button class="btn btn-primary" (click)="agregar()">Agregar</button>
+</div>

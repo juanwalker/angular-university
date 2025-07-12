@@ -1,21 +1,24 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { FormularioCalculadora } from "./formulario-calculadora/formulario-calculadora";
+import { Resultado } from "./resultado/resultado";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,FormsModule],
+  imports: [RouterOutlet, FormularioCalculadora, Resultado],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
 
-  protected title = 'calculadora';
-  valorA:number = 0;
-  valorB:number = 0;
-  total:number = 0;
+    
+  resultadoPadre: number = 0;
 
-  sumar() {
-    this.total = this.valorA + this.valorB
+  protected title = 'calculadora';
+
+  procesarResultado(resultado: number) {
+    this.resultadoPadre = resultado;
   }
+
 }

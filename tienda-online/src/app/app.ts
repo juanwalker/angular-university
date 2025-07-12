@@ -9,5 +9,5 @@ import { ListadoProductos } from "./listado-productos/listado-productos";
   styleUrl: './app.css'
 })
 export class App {
-  protected titulo = 'tienda-online';
+  protected titulo = 'Tienda Online';
 }

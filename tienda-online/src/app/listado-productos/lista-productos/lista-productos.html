@@ -1,0 +1,9 @@
+<ol class="list-group text-center mx-auto border">
+    @for(producto of productos; track producto){
+        <li class="list-group-item text-center">
+            {{ producto.descripcion }},
+            ${{ producto.precio}}    
+
+        </li>
+    }
+</ol>
