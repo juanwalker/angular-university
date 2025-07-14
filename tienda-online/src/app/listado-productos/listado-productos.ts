@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Producto } from '../producto/producto.model';
 import { FormularioProducto } from "./formulario-producto/formulario-producto";
 import { ListaProductos } from "./lista-productos/lista-productos";
+import { ProductoService } from '../producto-service';
 
 @Component({
   selector: 'app-listado-productos',
@@ -13,14 +14,16 @@ import { ListaProductos } from "./lista-productos/lista-productos";
 })
 export class ListadoProductos {
 
-  productos: Producto[] = [new Producto('Pantalón',130.0),new Producto('Pantalón',80.0),new Producto('Pantalón',50.0)]
+  productos: Producto[] = [];
 
+  constructor(private productoService: ProductoService) {
+    this.productoService.detalleProductorEmitter.subscribe((producto) => alert(`Producto: ${producto.descripcion},$${producto.precio}`));
 
-  // Se emitió una cadena(String), es lo que vamos a recibir del hijo
-  recibirNotificacion(producto: Producto) {
-    this.productos.push(producto);
   }
 
+  ngOnInit(){
+    this.productos = this.productoService.productos;
+  }
 
 
 

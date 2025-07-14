@@ -2,8 +2,8 @@
     @for(producto of productos; track producto){
         <li class="list-group-item text-center">
             {{ producto.descripcion }},
-            ${{ producto.precio}}    
-
+            ${{ producto.precio}}   
+            <button type="submit" class="btn btn-info ms-4" (click) = "emitirDetalleProducto(producto)">Ver detalle</button>
         </li>
     }
 </ol>

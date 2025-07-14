@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Producto } from '../../producto/producto.model';
+import { ProductoService } from '../../producto-service';
 
 @Component({
   selector: 'app-lista-productos',
@@ -10,5 +11,13 @@ import { Producto } from '../../producto/producto.model';
 export class ListaProductos {
   @Input() productos!: Producto[] ;
 
-  
+  constructor(private productoService: ProductoService){
+    
+  }
+
+
+  emitirDetalleProducto(producto:Producto){
+    this.productoService.detalleProductorEmitter.emit(producto);
+  }
+
 }

@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Producto } from '../../producto/producto.model';
+import { ProductoService } from '../../producto-service';
 
 @Component({
   selector: 'app-formulario-producto',
@@ -10,7 +11,10 @@ import { Producto } from '../../producto/producto.model';
 })
 export class FormularioProducto {
 
-  @Output() notificarPadre = new EventEmitter<Producto>();
+  constructor(private productoService: ProductoService){
+
+  }
+
 
   agregar() {
     if (this.descripcionInput.trim() === '' || this.precioInput == null || this.precioInput <= 0){
@@ -18,7 +22,7 @@ export class FormularioProducto {
       return;
     }
     const producto = new Producto(this.descripcionInput,Number(this.precioInput));
-    this.notificarPadre.emit(producto);
+    this.productoService.agregarProducto(producto)
   }
   descripcionInput: string = ''
   precioInput: number = 0
