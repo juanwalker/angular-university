@@ -16,6 +16,7 @@ import { Viewchild } from "./viewchild/viewchild";
 import { MensajeService } from './mensaje-service';
 import { ListadoUsuarios } from "./listado-usuarios/listado-usuarios";
 import { EjemploPipes } from "./ejemplo-pipes/ejemplo-pipes";
+import { Navegacion } from "./navegacion/navegacion";
 
 @Component({
   selector: 'app-root',
@@ -29,7 +30,7 @@ import { EjemploPipes } from "./ejemplo-pipes/ejemplo-pipes";
     Replicador,
     ComponenteIf,
     ComponenteFor,
-    Saludar, AgregarTarea, Viewchild, ListadoUsuarios, EjemploPipes],
+    Saludar, AgregarTarea, Viewchild, ListadoUsuarios, EjemploPipes, Navegacion],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
