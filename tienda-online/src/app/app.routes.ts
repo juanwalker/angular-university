@@ -1,12 +1,17 @@
 import { Routes } from '@angular/router';
-import { ListadoProductos } from './listado-productos/listado-productos';
-import { FormularioProducto } from './listado-productos/formulario-producto/formulario-producto';
+import { ListadoProductosComponent } from './listado-productos/listado-productos.component';
+import { FormularioComponent } from './formulario/formulario.component';
+import { ErrorComponent } from './error/error.component';
+import { LoginComponent } from './login/login.component';
+import { LoginGuardianService } from './login-guardian.service';
+
 
 export const routes: Routes = [
-    {path: '', component: ListadoProductos}, // http://localhost:4200/
-    {path: 'listado', component: ListadoProductos},
-    {path: 'agregar', component: FormularioProducto},
-    {path: 'editar/:id', component: FormularioProducto}
+    {path:'', component: ListadoProductosComponent,canActivate:[LoginGuardianService]}, //localhost:4200/
+    {path:'listado', component: ListadoProductosComponent,canActivate:[LoginGuardianService]},
+    {path:'agregar', component: FormularioComponent,canActivate:[LoginGuardianService]},
+    {path:'editar/:llave', component: FormularioComponent,canActivate:[LoginGuardianService] },
+    {path: 'login',component: LoginComponent},
+    // Ruta comodin para cualquier otra ruta no registrada
+    {path: '**', component: ErrorComponent}
 ];
-
- 
